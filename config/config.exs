@@ -9,6 +9,18 @@
 # move said applications out of the umbrella.
 import Config
 
+config :elixir_drip_web,
+  ecto_repos: [ElixirDripWeb.Repo],
+  generators: [context_app: false]
+
+# Configures the endpoint
+config :elixir_drip_web, ElixirDripWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "0lUU5K8/Aa9Ue6sLLPcBMIAmyuudYtJomz2LAnlz6eZmkGl+bsi/ZbUuem2hFt+h",
+  render_errors: [view: ElixirDripWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: ElixirDripWeb.PubSub,
+  live_view: [signing_salt: "lDJ32ivM"]
+
 # Configure Mix tasks and generators
 config :elixir_drip,
   ecto_repos: [ElixirDrip.Repo]
