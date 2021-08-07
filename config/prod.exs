@@ -46,3 +46,6 @@ config :elixir_drip_web, ElixirDripWeb.Endpoint,
 #       force_ssl: [hsts: true]
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.
+
+config :elixir_drip,
+  storage_provider: ElixirDrip.Storage.Providers.GoogleCloudStorageLive
