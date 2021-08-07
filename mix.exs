@@ -6,7 +6,8 @@ defmodule ElixirDrip.Umbrella.MixProject do
       apps_path: "apps",
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -16,6 +17,14 @@ defmodule ElixirDrip.Umbrella.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      lint: ["format", "credo"]
+    ]
   end
 end
