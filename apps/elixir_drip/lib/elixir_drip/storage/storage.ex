@@ -12,4 +12,8 @@ defmodule ElixirDrip.Storage do
   def retrieve(%Media{storage_key: storage_key}) do
     Provider.download(storage_key)
   end
+
+  defp generate_storage_key(%Media{id: id} = media) do
+    %{media | storage_key: id <> "_" <> Utils.generate_timestamp()}
+  end
 end
