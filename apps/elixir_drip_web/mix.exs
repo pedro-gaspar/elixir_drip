@@ -37,6 +37,7 @@ defmodule ElixirDripWeb.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:elixir_drip, in_umbrella: true},
       {:phoenix, "~> 1.5.10"},
       {:phoenix_ecto, "~> 4.0"},
       {:phoenix_html, "~> 2.11"},
