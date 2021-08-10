@@ -14,6 +14,6 @@ defmodule ElixirDrip.Storage do
   end
 
   defp generate_storage_key(%Media{id: id} = media) do
-    %{media | storage_key: id <> "_" <> Utils.generate_timestamp()}
+    %{media | storage_key: id <> "_" <> ElixirDrip.Utils.generate_timestamp()}
   end
 end
