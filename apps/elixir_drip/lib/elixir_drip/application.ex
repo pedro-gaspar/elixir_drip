@@ -5,14 +5,14 @@ defmodule ElixirDrip.Application do
 
   use Application
 
+  alias ElixirDrip.Storage.Supervisors.CacheSupervisor
+
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
       ElixirDrip.Repo,
-      # Start the PubSub system
-      {Phoenix.PubSub, name: ElixirDrip.PubSub}
-      # Start a worker by calling: ElixirDrip.Worker.start_link(arg)
-      # {ElixirDrip.Worker, arg}
+      {Phoenix.PubSub, name: ElixirDrip.PubSub},
+      CacheSupervisor,
+      {Registry, [keys: :unique, name: ElixirDrip.Registry]}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: ElixirDrip.Supervisor)

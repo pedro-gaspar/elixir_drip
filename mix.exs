@@ -18,7 +18,8 @@ defmodule ElixirDrip.Umbrella.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:ex2ms, "~> 1.0"}
     ]
   end
 
